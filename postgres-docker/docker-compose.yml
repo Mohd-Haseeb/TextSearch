@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: pg-database
+    environment:
+      POSTGRES_USER: searchuser
+      POSTGRES_PASSWORD: searchpass
+      POSTGRES_DB: searchdb
+    ports:
+      - "5444:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
